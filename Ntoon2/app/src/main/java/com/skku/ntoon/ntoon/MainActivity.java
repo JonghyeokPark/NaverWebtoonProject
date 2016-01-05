@@ -66,7 +66,7 @@ public class MainActivity extends AppCompatActivity {
 
             FragmentManager fm = getFragmentManager();
             android.app.FragmentTransaction fragmentTransaction = fm.beginTransaction();
-            fragmentTransaction.replace(R.id.container, fr);
+            fragmentTransaction.replace(R.id.container, android.support.v4.app.Fragment.fr);
             fragmentTransaction.commit();
         }
     };
