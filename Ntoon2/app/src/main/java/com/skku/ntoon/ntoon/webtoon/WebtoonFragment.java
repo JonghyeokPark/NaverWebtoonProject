@@ -22,3 +22,4 @@ public class WebtoonFragment extends android.app.Fragment{
         return rootView;
     }
 }
+
