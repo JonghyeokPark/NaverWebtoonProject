@@ -42,7 +42,7 @@ public class MainActivity extends AppCompatActivity {
 
     View.OnClickListener tabListener = new View.OnClickListener() {
 
-        Fragment fr;
+        android.support.v4.app.Fragment fr;
 
         @Override
         public void onClick(View v) {

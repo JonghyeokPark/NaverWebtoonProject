@@ -8,11 +8,6 @@ import android.support.v4.app.FragmentPagerAdapter;
  */
 public class MyPagerAdapter extends FragmentPagerAdapter {
     private static int NUM_ITEMS = 3;
-/*
-    public MyPagerAdapter(FragmentManager fragmentManager) {
-        super(fragmentManager);
-    }
-*/
 
     public MyPagerAdapter(FragmentManager childFragmentManager) {
         super(childFragmentManager);

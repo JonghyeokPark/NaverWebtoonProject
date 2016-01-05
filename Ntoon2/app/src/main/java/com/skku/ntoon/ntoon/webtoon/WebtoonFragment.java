@@ -3,8 +3,6 @@ package com.skku.ntoon.ntoon.webtoon;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.FragmentPagerAdapter;
-import android.app.Fragment;
-import android.support.v4.app.FragmentManager;
 import android.support.v4.view.ViewPager;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -16,17 +14,15 @@ import com.skku.ntoon.ntoon.R;
 /**
  * Created by kimhyojin on 15. 12. 31..
  */
-public class WebtoonFragment extends Fragment{
+public class WebtoonFragment extends android.support.v4.app.Fragment{
     FragmentPagerAdapter adapterViewPager;
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View rootView = inflater.inflate(R.layout.fragment_webtoon, container, false);
 
-        FragmentManager rootFragmentManager = getActivity().getSupportFragmentManager();
         ViewPager vpPager = (ViewPager) rootView.findViewById(R.id.vpPager);
-        adapterViewPager = new MyPagerAdapter(android.support.v4.app.FragmentManager.getSupportFragmentManager());
-        vpPager.setAdapter(adapterViewPager);
+        vpPager.setAdapter(new MyPagerAdapter(getFragmentManager()));
 
         // Attach the page change listener inside the activity
         vpPager.setOnPageChangeListener(new ViewPager.OnPageChangeListener() {

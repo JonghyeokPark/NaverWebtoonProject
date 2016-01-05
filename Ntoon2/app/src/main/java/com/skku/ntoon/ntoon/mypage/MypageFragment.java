@@ -1,12 +1,10 @@
 package com.skku.ntoon.ntoon.mypage;
 
 import android.content.ContentValues;
-import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
-import android.support.v4.app.Fragment;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -15,14 +13,12 @@ import android.widget.ListView;
 
 import com.skku.ntoon.ntoon.R;
 
-import java.sql.SQLClientInfoException;
 import java.util.ArrayList;
-import java.util.List;
 
 /**
  * Created by kimhyojin on 15. 12. 31..
  */
-public class MypageFragment extends android.app.Fragment {
+public class MypageFragment extends android.support.v4.app.Fragment {
 
 
     @Nullable
