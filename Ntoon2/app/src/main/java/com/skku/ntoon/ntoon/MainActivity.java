@@ -1,9 +1,10 @@
 package com.skku.ntoon.ntoon;
 
-import android.app.Fragment;
-import android.app.FragmentManager;
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentManager;
+import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
@@ -49,7 +50,7 @@ public class MainActivity extends AppCompatActivity {
 
     View.OnClickListener tabListener = new View.OnClickListener() {
 
-        android.support.v4.app.Fragment fr;
+        Fragment fr;
 
         @Override
         public void onClick(View v) {
@@ -64,9 +65,9 @@ public class MainActivity extends AppCompatActivity {
                 fr = new StoreFragment();
             }
 
-            FragmentManager fm = getFragmentManager();
-            android.app.FragmentTransaction fragmentTransaction = fm.beginTransaction();
-            fragmentTransaction.replace(R.id.container, android.support.v4.app.Fragment.fr);
+            FragmentManager fm = getSupportFragmentManager();
+            FragmentTransaction fragmentTransaction = fm.beginTransaction();
+            fragmentTransaction.replace(R.id.container, fr);
             fragmentTransaction.commit();
         }
     };
