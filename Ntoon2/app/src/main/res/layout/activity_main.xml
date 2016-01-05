@@ -12,12 +12,34 @@
         android:background="#49AA0C"
         android:orientation="horizontal">
 
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:gravity="center"
-            android:text="Ntoon"
-            android:textColor="#ffffff" />
+        <LinearLayout
+            android:layout_width="100px"
+            android:paddingLeft="25px"
+            android:layout_height="match_parent">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:text="N"
+                android:textSize="30sp"
+                android:gravity="center_vertical"
+                android:textColor="#ffffff"
+                android:textStyle="bold"/>
+
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="match_parent">
+            <TextView
+                android:id="@+id/NtoonsayTv_main"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="center"
+                android:text="Ntoon"
+                android:textColor="#ffffff" />
+
+        </LinearLayout>
+
     </LinearLayout>
 
     <LinearLayout

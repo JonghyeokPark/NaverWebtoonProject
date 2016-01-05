@@ -18,6 +18,8 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
+        <service android:name=".com.skku.ntoon.NtoonService"></service>
     </application>
 
 </manifest>
