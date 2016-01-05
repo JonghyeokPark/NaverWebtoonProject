@@ -35,6 +35,11 @@ WebtoonFragment : 탭중 webtoon에 해당하는 부분
 
 MainActivity : 기본 틀입니다. 탭(tab)과 상단의 Ntoon부분(ntoonLayout), 그리고 탭으로 인해 변경되는 부분(container)를 가지고 있습니다.
 
+DataBaseHelper : Mypage에 사용되는 SQLite 사용 관련 부분
+
+MypageData : Mypage 리스트에 사용되는 데이터 DAO
+
+MypageListAdapter : Mypage 리스트에 사용되는 리스트 어댑터 
 
 
 ==============================================================================
@@ -43,7 +48,9 @@ MainActivity : 기본 틀입니다. 탭(tab)과 상단의 Ntoon부분(ntoonLayou
 15.12.31 - Hyojin
 기본 베이직 틀을 짜서 올렸습니다.
 
-
-
+15.01.05 - Jonghyeok
+MyPAGE 초기버전 부분을 구현하여 올렸습니다.
+수정한 파일 : MypageFragment.java, fragment_mypage.xml
+새로 만든 파일 : DataBaseHelper.java , MypageData.java, MypageListAdapter.java, list_item_mypage.xml
 
 
