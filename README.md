@@ -53,4 +53,5 @@ MyPAGE 초기버전 부분을 구현하여 올렸습니다.
 수정한 파일 : MypageFragment.java, fragment_mypage.xml
 새로 만든 파일 : DataBaseHelper.java , MypageData.java, MypageListAdapter.java, list_item_mypage.xml
 
-
+15.01.05 - Namuk
+바보
