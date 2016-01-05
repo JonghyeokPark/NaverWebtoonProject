@@ -6,17 +6,20 @@
 var express = require('express')
   , routes = require('./routes');
 
+var path = require('path');
+
 var app = module.exports = express.createServer();
 
 // Configuration
 
 app.configure(function(){
-  app.set('views', __dirname + '/views');
-  app.set('view engine', 'jade');
-  app.use(express.bodyParser());
+  app.set('views', path.join( __dirname + '/views'));
+app.set('/static', express.static(__dirname + '/public'));
+  app.set('view engine', 'ejs'); // set up ejs for templating
+app.set("view options", { layout: false });   
+app.use(express.bodyParser());
   app.use(express.methodOverride());
   app.use(app.router);
-  app.use(express.static(__dirname + '/public'));
 });
 
 app.configure('development', function(){
