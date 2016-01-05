@@ -2,6 +2,7 @@ package com.skku.ntoon.ntoon.webtoon;
 
 import android.os.Bundle;
 import android.support.annotation.Nullable;
+import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.view.LayoutInflater;
@@ -14,7 +15,7 @@ import com.skku.ntoon.ntoon.R;
 /**
  * Created by kimhyojin on 15. 12. 31..
  */
-public class WebtoonFragment extends android.support.v4.app.Fragment{
+public class WebtoonFragment extends Fragment{
     FragmentPagerAdapter adapterViewPager;
     @Nullable
     @Override

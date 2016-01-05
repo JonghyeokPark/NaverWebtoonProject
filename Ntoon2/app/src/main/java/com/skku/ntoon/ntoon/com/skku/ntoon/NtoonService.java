@@ -7,6 +7,8 @@ import android.os.IBinder;
 import android.support.annotation.Nullable;
 import android.widget.TextView;
 
+import com.skku.ntoon.ntoon.R;
+
 /**
  * Created by kimhyojin on 16. 1. 5..
  */
@@ -20,7 +22,7 @@ public class NtoonService extends Service {
 
         intent = new Intent(BROADCAST_ACTION);
         sendBroadcast(intent);
-
+        DisplayLoggingInfo("안녕하세요! 저는 N툰입니다");
         super.onCreate();
 
     }
@@ -40,4 +42,11 @@ public class NtoonService extends Service {
     public void onDestroy() {
         super.onDestroy();
     }
+
+    private void DisplayLoggingInfo(String string) {
+
+        intent.putExtra("string", string);
+        sendBroadcast(intent);
+    }
+
 }
