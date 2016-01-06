@@ -14,10 +14,10 @@ var app = module.exports = express.createServer();
 
 app.configure(function(){
   app.set('views', path.join( __dirname + '/views'));
-app.set('/static', express.static(__dirname + '/public'));
+  app.set('/static', express.static(__dirname + '/public'));
   app.set('view engine', 'ejs'); // set up ejs for templating
-app.set("view options", { layout: false });   
-app.use(express.bodyParser());
+  app.set("view options", { layout: false });   
+  app.use(express.bodyParser());
   app.use(express.methodOverride());
   app.use(app.router);
 });
