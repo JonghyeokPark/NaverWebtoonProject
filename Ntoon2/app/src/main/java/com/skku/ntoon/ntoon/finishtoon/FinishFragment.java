@@ -19,8 +19,8 @@ public class FinishFragment extends android.support.v4.app.Fragment{
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        View rootView = inflater.inflate(R.layout.fragment_webtoon, container, false);
-        TabLayout tabLayout = (TabLayout)rootView.findViewById(R.id.tab_layout);
+        View rootView = inflater.inflate(R.layout.fragment_finish, container, false);
+        TabLayout tabLayout = (TabLayout)rootView.findViewById(R.id.finishtab_layout);
         tabLayout.addTab(tabLayout.newTab().setText("에피소드"));
         tabLayout.addTab(tabLayout.newTab().setText("옴니버스"));
         tabLayout.addTab(tabLayout.newTab().setText("스토리"));
@@ -37,7 +37,7 @@ public class FinishFragment extends android.support.v4.app.Fragment{
         tabLayout.setTabGravity(TabLayout.GRAVITY_FILL);
         tabLayout.setSelectedTabIndicatorColor(0xFF49AA0C);
 
-        final ViewPager viewPager = (ViewPager)rootView.findViewById(R.id.vpPager);
+        final ViewPager viewPager = (ViewPager)rootView.findViewById(R.id.finishvpPager);
 
         viewPager.setAdapter(new com.skku.ntoon.ntoon.finishtoon.MyPagerAdapter(getFragmentManager()));
         viewPager.addOnPageChangeListener(new TabLayout.TabLayoutOnPageChangeListener(tabLayout));
