@@ -83,7 +83,6 @@ public class MypageFragment extends android.support.v4.app.Fragment {
     {
         db = helper.getWritableDatabase();
         db.delete("user", "wid=?", new String[]{Integer.toString(wid)});
-
         Log.i(MYPAGE_LOG, String.valueOf(wid) + "is deleted!");
     }
 
