@@ -3,7 +3,6 @@ package com.skku.ntoon.ntoon.finishtoon;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.design.widget.TabLayout;
-import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.view.LayoutInflater;
@@ -11,12 +10,11 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.skku.ntoon.ntoon.R;
-import com.skku.ntoon.ntoon.webtoon.MyPagerAdapter;
 
 /**
  * Created by kimhyojin on 15. 12. 31..
  */
-public class FinishFragment extends Fragment{
+public class FinishFragment extends android.support.v4.app.Fragment{
     FragmentPagerAdapter adapterViewPager;
     @Nullable
     @Override
