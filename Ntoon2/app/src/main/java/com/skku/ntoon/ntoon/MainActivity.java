@@ -14,7 +14,6 @@ import android.widget.Button;
 import android.widget.TextView;
 
 import com.skku.ntoon.ntoon.com.skku.ntoon.NtoonService;
-import com.skku.ntoon.ntoon.finishtoon.FinishFragment;
 import com.skku.ntoon.ntoon.mypage.MypageFragment;
 import com.skku.ntoon.ntoon.store.StoreFragment;
 import com.skku.ntoon.ntoon.webtoon.WebtoonFragment;
