@@ -4,6 +4,7 @@ import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentPagerAdapter;
+import android.support.v4.view.PagerTabStrip;
 import android.support.v4.view.ViewPager;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -23,7 +24,9 @@ public class WebtoonFragment extends Fragment{
         View rootView = inflater.inflate(R.layout.fragment_webtoon, container, false);
 
         ViewPager vpPager = (ViewPager) rootView.findViewById(R.id.vpPager);
+
         vpPager.setAdapter(new MyPagerAdapter(getFragmentManager()));
+        PagerTabStrip ptStrip = (PagerTabStrip) rootView.findViewById(R.id.pager_header);
 
         // Attach the page change listener inside the activity
         vpPager.setOnPageChangeListener(new ViewPager.OnPageChangeListener() {

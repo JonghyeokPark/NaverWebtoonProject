@@ -1,14 +1,10 @@
 package com.skku.ntoon.ntoon.com.skku.ntoon;
 
-import android.app.Activity;
 import android.app.Service;
 import android.content.Intent;
 import android.os.Handler;
 import android.os.IBinder;
 import android.support.annotation.Nullable;
-import android.widget.TextView;
-
-import com.skku.ntoon.ntoon.R;
 
 
 /**
@@ -68,5 +64,4 @@ public class NtoonService extends Service {
         intent.putExtra("string", a);
         sendBroadcast(intent);
     }
-
 }
