@@ -1,4 +1,4 @@
-package com.skku.ntoon.ntoon.webtoon;
+package com.skku.ntoon.ntoon.finishtoon;
 
 import android.support.v4.app.Fragment;
 import android.os.Bundle;
@@ -12,14 +12,14 @@ import com.skku.ntoon.ntoon.R;
 /**
  * Created by CNWMAC on 16. 1. 5..
  */
-public class SecondFragment extends Fragment {
+public class DayFragment extends Fragment {
     // Store instance variables
     private String title;
     private int page;
 
     // newInstance constructor for creating fragment with arguments
-    public static SecondFragment newInstance(int page, String title) {
-        SecondFragment fragmentFirst = new SecondFragment();
+    public static DayFragment newInstance(int page, String title) {
+        DayFragment fragmentFirst = new DayFragment();
         Bundle args = new Bundle();
         args.putInt("someInt", page);
         args.putString("someTitle", title);
@@ -39,7 +39,7 @@ public class SecondFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.fragment_first, container, false);
+        View view = inflater.inflate(R.layout.fragment_fragment_webtoon, container, false);
         TextView tvLabel = (TextView) view.findViewById(R.id.tvLabel);
         tvLabel.setText(page + " -- " + title);
         return view;
