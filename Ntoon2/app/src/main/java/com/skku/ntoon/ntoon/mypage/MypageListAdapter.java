@@ -22,7 +22,8 @@ public class MypageListAdapter extends BaseAdapter {
 
     Context context;
     int listitem;
-    ArrayList<MypageData>data;
+    ArrayList<MypageData> data;
+
     LayoutInflater layoutInflater;
 
     public MypageListAdapter(Activity activity, int listitem, ArrayList<MypageData> data) {

@@ -16,6 +16,7 @@ import com.skku.ntoon.ntoon.R;
  */
 public class FinishFragment extends android.support.v4.app.Fragment{
     FragmentPagerAdapter adapterViewPager;
+    private View view;
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -39,7 +40,7 @@ public class FinishFragment extends android.support.v4.app.Fragment{
 
         final ViewPager viewPager = (ViewPager)rootView.findViewById(R.id.finishvpPager);
 
-        viewPager.setAdapter(new com.skku.ntoon.ntoon.finishtoon.MyPagerAdapter(getFragmentManager()));
+        viewPager.setAdapter(new FinishAdapter(getFragmentManager()));
         viewPager.addOnPageChangeListener(new TabLayout.TabLayoutOnPageChangeListener(tabLayout));
 
         tabLayout.setOnTabSelectedListener(new TabLayout.OnTabSelectedListener() {
