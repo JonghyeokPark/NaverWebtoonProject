@@ -8,13 +8,13 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
-import android.widget.GridView;
 
 import com.skku.ntoon.ntoon.ListPage.ListFragment;
 import com.skku.ntoon.ntoon.R;
-import com.skku.ntoon.ntoon.mypage.MypageFragment;
 
 import java.util.ArrayList;
+
+import in.srain.cube.views.GridViewWithHeaderAndFooter;
 
 /**
  * Created by luusoo on 16. 1. 5..
@@ -23,7 +23,7 @@ public class GenreFragment extends Fragment {
     // Store instance variables
     private ArrayList<FinishData> fdata;
     private GenreAdapter gadapter;
-    private GridView list_webtoon;
+
 
     int flag = 1;
 
@@ -53,7 +53,13 @@ public class GenreFragment extends Fragment {
 
         fdata.add(new FinishData("aa","aa","aa",1.0));
 
-        list_webtoon = (GridView) view.findViewById(R.id.gridView);
+        GridViewWithHeaderAndFooter list_webtoon = (GridViewWithHeaderAndFooter) view.findViewById(R.id.gridView);
+
+        LayoutInflater layoutInflater = LayoutInflater.from(getContext());
+        View footerView = layoutInflater.inflate(R.layout.footer_test, null);
+        list_webtoon.addFooterView(footerView);
+
+        //list_webtoon = (GridView) view.findViewById(R.id.gridView);
         gadapter = new GenreAdapter(getActivity(),fdata);
         list_webtoon.setAdapter(gadapter);
 
