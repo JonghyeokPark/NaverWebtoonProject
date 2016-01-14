@@ -43,14 +43,14 @@ public class FinishFragment extends android.support.v4.app.Fragment{
 
         viewPager = (ViewPager)rootView.findViewById(R.id.finishvpPager);
         Log.i("FinishPage", "Finish started!");
-        viewPager.setAdapter(new FinishAdapter(getFragmentManager()));
+        viewPager.setAdapter(new FinishAdapter(getChildFragmentManager()));
         viewPager.addOnPageChangeListener(new TabLayout.TabLayoutOnPageChangeListener(tabLayout));
 
         tabLayout.setOnTabSelectedListener(new TabLayout.OnTabSelectedListener() {
             @Override
             public void onTabSelected(TabLayout.Tab tab) {
                 Log.i("FinishPage", "Select started!");
-                viewPager.setAdapter(new FinishAdapter(getFragmentManager()));
+                viewPager.setAdapter(new FinishAdapter(getChildFragmentManager()));
                 viewPager.setCurrentItem(tab.getPosition());
             }
 

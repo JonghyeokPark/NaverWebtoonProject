@@ -32,7 +32,7 @@ public class WebtoonFragment extends Fragment{
 
         final ViewPager viewPager = (ViewPager)rootView.findViewById(R.id.vpPager);
 
-        viewPager.setAdapter(new MyPagerAdapter(getFragmentManager()));
+        viewPager.setAdapter(new MyPagerAdapter(getChildFragmentManager()));
         viewPager.addOnPageChangeListener(new TabLayout.TabLayoutOnPageChangeListener(tabLayout));
 
         tabLayout.setOnTabSelectedListener(new TabLayout.OnTabSelectedListener() {
