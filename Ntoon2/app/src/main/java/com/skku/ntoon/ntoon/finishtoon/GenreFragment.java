@@ -139,7 +139,7 @@ public class GenreFragment extends Fragment {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int pos, long id) {
                 FinishData fd = fdata.get(pos);
-                FragmentManager fm = getFragmentManager();
+                FragmentManager fm = getParentFragment().getFragmentManager();
                 FragmentTransaction fragmentTransaction = fm.beginTransaction();
                 fragmentTransaction.replace(R.id.container, new ListFragment(fd.getName()));
                 fragmentTransaction.addToBackStack(null);
