@@ -5,9 +5,9 @@ package com.skku.ntoon.ntoon.ListPage;
  */
 public class ListData {
     String name, author, date;
-    double star;
+    String star;
 
-    public ListData(String name, String author, String date, double star){
+    public ListData(String name, String author, String date, String star){
         this.name = name;
         this.author = author;
         this.date = date;
@@ -26,7 +26,7 @@ public class ListData {
         return date;
     }
 
-    public double getStar(){
+    public String getStar(){
         return star;
     }
 }

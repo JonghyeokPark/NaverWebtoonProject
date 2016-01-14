@@ -5,6 +5,7 @@ import android.support.annotation.Nullable;
 import android.support.design.widget.TabLayout;
 import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.view.ViewPager;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -17,9 +18,11 @@ import com.skku.ntoon.ntoon.R;
 public class FinishFragment extends android.support.v4.app.Fragment{
     FragmentPagerAdapter adapterViewPager;
     private View view;
+    private ViewPager viewPager;
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
         View rootView = inflater.inflate(R.layout.fragment_finish, container, false);
         TabLayout tabLayout = (TabLayout)rootView.findViewById(R.id.finishtab_layout);
         tabLayout.addTab(tabLayout.newTab().setText("에피소드"));
@@ -38,14 +41,16 @@ public class FinishFragment extends android.support.v4.app.Fragment{
         tabLayout.setTabGravity(TabLayout.GRAVITY_FILL);
         tabLayout.setSelectedTabIndicatorColor(0xFF49AA0C);
 
-        final ViewPager viewPager = (ViewPager)rootView.findViewById(R.id.finishvpPager);
-
+        viewPager = (ViewPager)rootView.findViewById(R.id.finishvpPager);
+        Log.i("FinishPage", "Finish started!");
         viewPager.setAdapter(new FinishAdapter(getFragmentManager()));
         viewPager.addOnPageChangeListener(new TabLayout.TabLayoutOnPageChangeListener(tabLayout));
 
         tabLayout.setOnTabSelectedListener(new TabLayout.OnTabSelectedListener() {
             @Override
             public void onTabSelected(TabLayout.Tab tab) {
+                Log.i("FinishPage", "Select started!");
+                viewPager.setAdapter(new FinishAdapter(getFragmentManager()));
                 viewPager.setCurrentItem(tab.getPosition());
             }
 
@@ -56,7 +61,7 @@ public class FinishFragment extends android.support.v4.app.Fragment{
 
             @Override
             public void onTabReselected(TabLayout.Tab tab) {
-
+                Log.i("FinishPage", "Select started!");
             }
         });
 

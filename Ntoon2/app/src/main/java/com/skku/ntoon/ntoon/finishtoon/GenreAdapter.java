@@ -23,9 +23,7 @@ public class GenreAdapter extends BaseAdapter
     }
 
     @Override
-    public int getCount() {
-        return fdata.size();
-    }
+    public int getCount() { return fdata.size(); }
 
     @Override
     public Object getItem(int position) {
@@ -41,7 +39,16 @@ public class GenreAdapter extends BaseAdapter
     public View getView(int position, View convertView, ViewGroup parent) {
         // TODO Auto-generated method stub
         LayoutInflater inflator = activity.getLayoutInflater();
-        convertView = inflator.inflate(R.layout.webtoon_adapter, null);
+        convertView = inflator.inflate(R.layout.adapter_webtoon, null);
+
+        TextView name = (TextView) convertView.findViewById(R.id.name);
+        TextView author = (TextView) convertView.findViewById(R.id.author);
+        ImageView imageView = (ImageView) convertView.findViewById(R.id.imageView);
+
+        name.setText(fdata.get(position).getName());
+        author.setText(fdata.get(position).getAuthor());
+        imageView.setImageResource(R.drawable.sample);
+
         return convertView;
     }
 }

@@ -47,7 +47,10 @@ public class ListFragment extends Fragment {
 
         ldata = new ArrayList<ListData>();
 
-        ldata.add(new ListData("aa","aa","aa",1.0));
+        ldata.add(new ListData(webtoon_name,webtoon_name,webtoon_name,webtoon_name));
+        ldata.add(new ListData(webtoon_name,webtoon_name,webtoon_name,webtoon_name));
+        ldata.add(new ListData(webtoon_name,webtoon_name,webtoon_name,webtoon_name));
+        ldata.add(new ListData(webtoon_name,webtoon_name,webtoon_name,webtoon_name));
 
         list_webtoon = (ListView) view.findViewById(R.id.listView);
         ladapter = new ListAdapter(getActivity(),ldata);

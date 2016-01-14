@@ -2,6 +2,7 @@ package com.skku.ntoon.ntoon.finishtoon;
 
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
+import android.util.Log;
 
 /**
  * Created by luusoo on 16. 1. 5..
@@ -11,6 +12,8 @@ public class FinishAdapter extends FragmentPagerAdapter {
 
     public FinishAdapter(FragmentManager childFragmentManager) {
         super(childFragmentManager);
+
+        Log.i("adapter", "started!");
     }
 
     // Returns total number of pages
@@ -22,33 +25,36 @@ public class FinishAdapter extends FragmentPagerAdapter {
     // Returns the fragment to display for that page
     @Override
     public android.support.v4.app.Fragment getItem(int position) {
+
+        GenreFragment genreFragment;
+        Log.i("FinishPage", "FinishAdapter started!");
         switch (position) {
             case 0:
-                return GenreFragment.newInstance(0, "Page # 1");
+                return new GenreFragment(0);
             case 1:
-                return GenreFragment.newInstance(1, "Page # 2");
+                return new GenreFragment(1);
             case 2:
-                return GenreFragment.newInstance(2, "Page # 3");
+                return new GenreFragment(2);
             case 3:
-                return GenreFragment.newInstance(3, "Page # 4");
+                return new GenreFragment(3);
             case 4:
-                return GenreFragment.newInstance(4, "Page # 5");
+                return new GenreFragment(4);
             case 5:
-                return GenreFragment.newInstance(5, "Page # 6");
+                return new GenreFragment(5);
             case 6:
-                return GenreFragment.newInstance(6, "Page # 7");
+                return new GenreFragment(6);
             case 7:
-                return GenreFragment.newInstance(7, "Page # 8");
+                return new GenreFragment(7);
             case 8:
-                return GenreFragment.newInstance(8, "Page # 9");
+                return new GenreFragment(8);
             case 9:
-                return GenreFragment.newInstance(9, "Page # 10");
+                return new GenreFragment(9);
             case 10:
-                return GenreFragment.newInstance(10, "Page # 11");
+                return new GenreFragment(10);
             case 11:
-                return GenreFragment.newInstance(11, "Page # 12");
+                return new GenreFragment(11);
             case 12:
-                return GenreFragment.newInstance(12, "Page # 13");
+                return new GenreFragment(12);
             default:
                 return null;
         }

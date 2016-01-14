@@ -5,6 +5,8 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
+import android.widget.ImageView;
+import android.widget.TextView;
 
 import com.skku.ntoon.ntoon.R;
 
@@ -40,7 +42,14 @@ public class ListAdapter extends BaseAdapter
     public View getView(int position, View convertView, ViewGroup parent) {
         // TODO Auto-generated method stub
         LayoutInflater inflator = activity.getLayoutInflater();
-        convertView = inflator.inflate(R.layout.list_adapter, null);
+        convertView = inflator.inflate(R.layout.adapter_list, null);
+
+        TextView name = (TextView) convertView.findViewById(R.id.name);
+        ImageView imageView = (ImageView) convertView.findViewById(R.id.imageView);
+
+        name.setText(ldata.get(position).getName());
+        imageView.setImageResource(R.drawable.sample);
+
         return convertView;
     }
 }

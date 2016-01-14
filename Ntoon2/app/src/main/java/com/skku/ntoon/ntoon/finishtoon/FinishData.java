@@ -4,13 +4,11 @@ package com.skku.ntoon.ntoon.finishtoon;
  * Created by luusoo on 2016-01-09.
  */
 public class FinishData {
-    String name, author, date;
-    double star;
+    String name, author, date, star;
 
-    public FinishData(String name, String author, String date, double star){
+    public FinishData(String name, String author, String star){
         this.name = name;
         this.author = author;
-        this.date = date;
         this.star = star;
     }
 
@@ -26,7 +24,7 @@ public class FinishData {
         return date;
     }
 
-    public double getStar(){
+    public String getStar(){
         return star;
     }
 }
