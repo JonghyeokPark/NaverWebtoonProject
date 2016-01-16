@@ -48,6 +48,12 @@ public class MainActivity extends AppCompatActivity {
         finishBtn.setOnClickListener(tabListener);
         storeBtn.setOnClickListener(tabListener);
 
+        Fragment fr = new WebtoonFragment();
+        FragmentManager fm = getSupportFragmentManager();
+        FragmentTransaction fragmentTransaction = fm.beginTransaction();
+        fragmentTransaction.replace(R.id.container, fr);
+        fragmentTransaction.commit();
+
         intent = new Intent(this, NtoonService.class);
         startService(intent);
 
