@@ -54,14 +54,22 @@ public class JSONParser {
 
             }else if(method == "GET"){
                 // request method is GET
+                Log.d("TAG","JSONParser 1");
                 DefaultHttpClient httpClient = new DefaultHttpClient();
+                Log.d("TAG","JSONParser 2");
                 String paramString = URLEncodedUtils.format(params, "utf-8");
+                Log.d("TAG","JSONParser 3");
                 url += "?" + paramString;
+                Log.d("TAG","JSONParser 4");
                 HttpGet httpGet = new HttpGet(url);
+                Log.d("TAG","JSONParser 5");
 
                 HttpResponse httpResponse = httpClient.execute(httpGet);
+                Log.d("TAG","JSONParser 6");
                 HttpEntity httpEntity = httpResponse.getEntity();
+                Log.d("TAG","JSONParser 7");
                 is = httpEntity.getContent();
+                Log.d("TAG","JSONParser 8");
             }
 
         } catch (UnsupportedEncodingException e) {
@@ -74,7 +82,7 @@ public class JSONParser {
 
         try {
             BufferedReader reader = new BufferedReader(new InputStreamReader(
-                    is, "iso-8859-1"), 8);
+                    is, "utf-8"), 8);
             StringBuilder sb = new StringBuilder();
             String line = null;
             while ((line = reader.readLine()) != null) {

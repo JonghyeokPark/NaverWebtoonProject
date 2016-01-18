@@ -4,12 +4,13 @@ package com.skku.ntoon.ntoon.finishtoon;
  * Created by luusoo on 2016-01-09.
  */
 public class FinishData {
-    String name, author, date, star;
+    String name, author, date, star, thumbnail;
 
-    public FinishData(String name, String author, String star){
+    public FinishData(String name, String author, String star, String thumbnail){
         this.name = name;
         this.author = author;
         this.star = star;
+        this.thumbnail = thumbnail;
     }
 
     public String getName(){
@@ -27,4 +28,9 @@ public class FinishData {
     public String getStar(){
         return star;
     }
+
+    public String getThumbnail(){
+        return thumbnail;
+    }
+
 }

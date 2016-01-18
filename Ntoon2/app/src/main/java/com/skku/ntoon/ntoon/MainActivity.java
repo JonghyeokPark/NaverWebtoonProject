@@ -13,6 +13,10 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
+import com.nostra13.universalimageloader.cache.disc.naming.Md5FileNameGenerator;
+import com.nostra13.universalimageloader.core.ImageLoader;
+import com.nostra13.universalimageloader.core.ImageLoaderConfiguration;
+import com.nostra13.universalimageloader.core.assist.QueueProcessingType;
 import com.skku.ntoon.ntoon.com.skku.ntoon.NtoonService;
 import com.skku.ntoon.ntoon.finishtoon.FinishFragment;
 import com.skku.ntoon.ntoon.mypage.MypageFragment;
@@ -58,6 +62,14 @@ public class MainActivity extends AppCompatActivity {
         startService(intent);
 
 
+        ImageLoaderConfiguration config = new ImageLoaderConfiguration.Builder(getApplicationContext())
+                .threadPriority(Thread.NORM_PRIORITY - 2)
+                .denyCacheImageMultipleSizesInMemory()
+                .discCacheFileNameGenerator(new Md5FileNameGenerator())
+                .tasksProcessingOrder(QueueProcessingType.LIFO)
+                .writeDebugLogs() // 마켓에 포팅하실땐 빼주세요.
+                .build();
+        ImageLoader.getInstance().init(config);
     }
 
     //Ntoon

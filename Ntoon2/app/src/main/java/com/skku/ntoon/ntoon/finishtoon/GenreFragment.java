@@ -102,6 +102,13 @@ public class GenreFragment extends Fragment {
         this.setArguments(args);
     }
 
+    @Override
+    public void onActivityCreated(Bundle savedInstanceState) {
+        super.onActivityCreated(savedInstanceState);
+        //new LoadAllWebtoons().execute();
+
+    }
+
     // Inflate the view for the fragment based on layout XML
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -112,22 +119,35 @@ public class GenreFragment extends Fragment {
         HashMap<String,String> webtoon;
         fdata = new ArrayList<>();
 
-//        new LoadAllWebtoons().execute();
+        new LoadAllWebtoons().execute();
 //
-//        for(int i = 0;i < webtoonList.size(); i++){
-//            webtoon = webtoonList.get(i);
-//
-//            if(webtoon.get("isend").equals("1")) {
-//                if (genre.equals(webtoon.get("genre"))) {
-//                    fdata.add(new FinishData(webtoon.get("name"),webtoon.get("author"),webtoon.get("star")));
-//                }
-//            }
-//        }
+        for(int i = 0;i < webtoonList.size(); i++){
+            webtoon = webtoonList.get(i);
 
-        fdata.add(new FinishData(genre, genre, genre));
-        fdata.add(new FinishData(genre, genre, genre));
-        fdata.add(new FinishData(genre, genre, genre));
-        fdata.add(new FinishData(genre, genre, genre));
+            Log.d("WEBTOON","WEBTOON");
+            Log.d("WEBTOON name", webtoon.get("name"));
+            Log.d("WEBTOON isend",webtoon.get("isend"));
+            Log.d("WEBTOON genre",webtoon.get("genre"));
+
+
+            if(webtoon.get("isend").equals("1")) {
+                Log.d("==============", "1");
+                if (genre.equals(webtoon.get("genre"))) {
+                    Log.d("==============", "inside");
+
+                    Log.d("WEBTOON name", webtoon.get("name"));
+                    Log.d("WEBTOON author", webtoon.get("author"));
+                    Log.d("WEBTOON star", webtoon.get("star"));
+
+                    fdata.add(new FinishData(webtoon.get("name"),webtoon.get("author"),webtoon.get("star"),webtoon.get("thumbnail")));
+                }
+            }
+        }
+
+        //fdata.add(new FinishData(genre, genre, genre,null));
+        //fdata.add(new FinishData(genre, genre, genre,null));
+        //fdata.add(new FinishData(genre, genre, genre,null));
+        //fdata.add(new FinishData(genre, genre, genre,null));
 
         Log.i("FinishPage " + genre, "FinishAdapter started!");
 
@@ -147,6 +167,7 @@ public class GenreFragment extends Fragment {
             }
         });
 
+        // ��� ?????????
         list_webtoon.setOnItemLongClickListener(new AdapterView.OnItemLongClickListener() {
             @Override
             public boolean onItemLongClick(AdapterView<?> parent, View view, int pos, long iD) {
@@ -172,32 +193,67 @@ public class GenreFragment extends Fragment {
 
             List<NameValuePair> params = new ArrayList<NameValuePair>();
             // getting JSON string from URL
+            Log.d("TAG : ","LoadAllWebtoons 1");
+
             JSONObject json = jParser.makeHttpRequest(url_all_products, "GET", params);
+            Log.d("TAG : ","LoadAllWebtoons 2");
 
-            Log.d("DEBUG[MAIN]","IS RIGHT?");
-
-            // Check your log cat for JSON reponse
-//            Log.d("All Webtoons: ", json.toString());
+            Log.d("TAG : ", json.toString());
 
             try {
                 int success = json.getInt(TAG_SUCCESS);
-
+                Log.d("TAG",String.valueOf(success));
                 if(success == 1){
                     webtoons = json.getJSONArray(TAG_WEBTOON);
 
                     for(int i =0; i < webtoons.length(); i++){
                         JSONObject c = webtoons.getJSONObject(i);
+                        /* $product["wid"] = $row["wid"];
+        $product["name"] = $row["name"];
+        $product["star"] = $row["star"];
+        $product["author"] = $row["author"];
+        $product["genre"] = $row["genre"];
+        $product["intro"] = $row["intro"];
+        $product["day"] = $row["day"];
+        $product["thumbnail"] = $row["thumbnail"];
+        $product["likes"] = $row["likes"];
+        $product["isend"] = $row["isend"];
+        $product["isstop"] = $row["isstop"];
+        $product["startdate"] = $row["startdate"];*/
 
+                        String wid = c.getString("wid");
                         String name = c.getString("name");
-                        String author = c.getString("author");
                         String star = c.getString("star");
+                        String author = c.getString("author");
+                        String genre = c.getString("genre");
+                        String intro = c.getString("intro");
+                        String day = c.getString("day");
+                        String thumbnail = c.getString("thumbnail");
+                        String likes = c.getString("likes");
+                        String isend = c.getString("isend");
+                        String isstop = c.getString("isstop");
+                        String startdate = c.getString("startdate");
+
+                        //Log.d("TAG", name);
+                        //Log.d("TAG", author);
+                        //Log.d("TAG", star);
+
 
                         HashMap<String, String> map = new HashMap<>();
+                        map.put("wid",wid);
                         map.put("name",name);
-                        map.put("author",author);
                         map.put("star",star);
+                        map.put("author",author);
+                        map.put("genre",genre);
+                        map.put("intro",intro);
+                        map.put("day",day);
+                        map.put("thumbnail",thumbnail);
+                        map.put("likes",likes);
+                        map.put("isend",isend);
+                        map.put("isstop",isstop);
+                        map.put("startdate",startdate);
 
-                        Log.i("[MAIN RESULT]", name + "//" + author);
+                        //Log.i("[MAIN RESULT]", name + "//" + author);
 
                         webtoonList.add(map);
                     }

@@ -9,6 +9,9 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import java.util.ArrayList;
+
+import com.nostra13.universalimageloader.core.ImageLoader;
+import com.nostra13.universalimageloader.core.ImageLoaderConfiguration;
 import com.skku.ntoon.ntoon.R;
 
 public class GenreAdapter extends BaseAdapter
@@ -37,6 +40,11 @@ public class GenreAdapter extends BaseAdapter
 
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
+
+
+        ImageLoader imageLoader = ImageLoader.getInstance();
+
+
         // TODO Auto-generated method stub
         LayoutInflater inflator = activity.getLayoutInflater();
         convertView = inflator.inflate(R.layout.adapter_webtoon, null);
@@ -47,8 +55,8 @@ public class GenreAdapter extends BaseAdapter
 
         name.setText(fdata.get(position).getName());
         author.setText(fdata.get(position).getAuthor());
-        imageView.setImageResource(R.drawable.sample);
-
+        //imageView.setImageResource(fdata.get(position).getThumbnail());
+        imageLoader.displayImage(fdata.get(position).getThumbnail(), imageView);
         return convertView;
     }
 }
