@@ -55,7 +55,6 @@ public class GenreAdapter extends BaseAdapter
 
         name.setText(fdata.get(position).getName());
         author.setText(fdata.get(position).getAuthor());
-        //imageView.setImageResource(fdata.get(position).getThumbnail());
         imageLoader.displayImage(fdata.get(position).getThumbnail(), imageView);
         return convertView;
     }

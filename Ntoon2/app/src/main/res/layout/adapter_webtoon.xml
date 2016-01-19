@@ -7,9 +7,9 @@
     android:padding="5dp">
 
     <ImageView
-        android:layout_height="64dp"
+        android:layout_height="100dp"
         android:id="@+id/imageView"
-        android:layout_width="64dp"
+        android:layout_width="match_parent"
         android:src="@drawable/button"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true">

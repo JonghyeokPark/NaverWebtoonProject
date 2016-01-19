@@ -254,8 +254,23 @@ public class GenreFragment extends Fragment {
                         map.put("startdate",startdate);
 
                         //Log.i("[MAIN RESULT]", name + "//" + author);
+                        int flag = 0;
 
-                        webtoonList.add(map);
+                        if(webtoonList.size() > 0 ) {
+                            for (int j = 0; j < webtoonList.size(); j++) {
+                                HashMap<String, String> webtoon2 = webtoonList.get(j);
+
+                                if (webtoon2.get("wid").equals(wid)) {
+                                    Log.d("TAGG",webtoon2.get("wid"));
+                                    Log.d("TAGG",wid);
+
+                                    flag = 1;
+                                }
+                            }
+                        }
+
+                        if(flag == 0)
+                            webtoonList.add(map);
                     }
                 }
                 else {
