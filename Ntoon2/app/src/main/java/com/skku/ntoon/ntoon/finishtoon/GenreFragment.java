@@ -10,11 +10,13 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.WindowManager;
 import android.widget.AdapterView;
 import android.widget.GridView;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.nostra13.universalimageloader.core.ImageLoader;
 import com.skku.ntoon.ntoon.ListPage.ListAdapter;
 import com.skku.ntoon.ntoon.ListPage.ListFragment;
 import com.skku.ntoon.ntoon.R;
@@ -50,6 +52,14 @@ public class GenreFragment extends Fragment {
 
     JSONParser jParser = new JSONParser();
     JSONArray webtoons = null;
+
+    // 웹툰 설명을 위한 변수
+    String dialog_name = null;
+    String dialog_thumbnail = null;
+    String dialog_wid = null;
+    String dialog_intro = null;
+
+    ImageLoader imageLoader = ImageLoader.getInstance();
 
     private static String url_all_products = "http://52.88.69.12/mysql_connect/show_webtoon.php";
 
@@ -106,7 +116,6 @@ public class GenreFragment extends Fragment {
     public void onActivityCreated(Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
         //new LoadAllWebtoons().execute();
-
     }
 
     // Inflate the view for the fragment based on layout XML
@@ -120,7 +129,7 @@ public class GenreFragment extends Fragment {
         fdata = new ArrayList<>();
 
         new LoadAllWebtoons().execute();
-//
+
         for(int i = 0;i < webtoonList.size(); i++){
             webtoon = webtoonList.get(i);
 
@@ -139,7 +148,9 @@ public class GenreFragment extends Fragment {
                     Log.d("WEBTOON author", webtoon.get("author"));
                     Log.d("WEBTOON star", webtoon.get("star"));
 
-                    fdata.add(new FinishData(webtoon.get("name"),webtoon.get("author"),webtoon.get("star"),webtoon.get("thumbnail")));
+                    fdata.add(new FinishData(
+                            webtoon.get("name"),webtoon.get("author"),webtoon.get("star"),webtoon.get("thumbnail"),
+                            webtoon.get("intro"), webtoon.get("wid")));
                 }
             }
         }
@@ -171,13 +182,30 @@ public class GenreFragment extends Fragment {
         list_webtoon.setOnItemLongClickListener(new AdapterView.OnItemLongClickListener() {
             @Override
             public boolean onItemLongClick(AdapterView<?> parent, View view, int pos, long iD) {
+
                 Dialog dialog = new Dialog(getContext());
                 dialog.setContentView(R.layout.custom_dialog);
 
-                TextView text = (TextView) dialog.findViewById(R.id.textView);
-                text.setText("sample");
+                TextView text = (TextView) dialog.findViewById(R.id.textView); // 이작가의 추천 웹툰
+                TextView nameText = (TextView) dialog.findViewById(R.id.dialog_name_tv);
+                TextView infoText = (TextView) dialog.findViewById(R.id.dialog_intro_tv);
+
+                FinishData dialog_webtoon;
+                dialog_webtoon = fdata.get(pos);
+
+                dialog_wid = dialog_webtoon.getWid();
+                dialog_name = dialog_webtoon.getName();
+                dialog_thumbnail = dialog_webtoon.getThumbnail();
+                dialog_intro = dialog_webtoon.getIntro();
+
+                //Log.d("[jong_debug]",dialog_name+"/"+dialog_intro);
+
+                nameText.setText(dialog_name);
+                infoText.setText(dialog_intro);
+
                 ImageView image = (ImageView) dialog.findViewById(R.id.imageView);
-                image.setImageResource(R.drawable.sample);
+                //image.setImageResource(R.drawable.sample);
+                imageLoader.displayImage(fdata.get(pos).getThumbnail(), image);
                 dialog.show();
                 return true;
             }
@@ -203,7 +231,7 @@ public class GenreFragment extends Fragment {
             try {
                 int success = json.getInt(TAG_SUCCESS);
                 Log.d("TAG",String.valueOf(success));
-                if(success == 1){
+                if(success == 1) {
                     webtoons = json.getJSONArray(TAG_WEBTOON);
 
                     for(int i =0; i < webtoons.length(); i++){
@@ -233,6 +261,8 @@ public class GenreFragment extends Fragment {
                         String isend = c.getString("isend");
                         String isstop = c.getString("isstop");
                         String startdate = c.getString("startdate");
+
+
 
                         //Log.d("TAG", name);
                         //Log.d("TAG", author);
