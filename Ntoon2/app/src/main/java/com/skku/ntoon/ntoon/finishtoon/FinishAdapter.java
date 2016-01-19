@@ -4,6 +4,8 @@ import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
 import android.util.Log;
 
+import com.skku.ntoon.ntoon.Util.SideFragment;
+
 /**
  * Created by luusoo on 16. 1. 5..
  */
@@ -26,35 +28,34 @@ public class FinishAdapter extends FragmentPagerAdapter {
     @Override
     public android.support.v4.app.Fragment getItem(int position) {
 
-        GenreFragment genreFragment;
         Log.i("FinishPage", "FinishAdapter started!");
         switch (position) {
             case 0:
-                return new GenreFragment(0);
+                return new SideFragment("에피소드",1);
             case 1:
-                return new GenreFragment(1);
+                return new SideFragment("옴니버스",1);
             case 2:
-                return new GenreFragment(2);
+                return new SideFragment("스토리",1);
             case 3:
-                return new GenreFragment(3);
+                return new SideFragment("일상",1);
             case 4:
-                return new GenreFragment(4);
+                return new SideFragment("개그",1);
             case 5:
-                return new GenreFragment(5);
+                return new SideFragment("판타지",1);
             case 6:
-                return new GenreFragment(6);
+                return new SideFragment("액션",1);
             case 7:
-                return new GenreFragment(7);
+                return new SideFragment("드라마",1);
             case 8:
-                return new GenreFragment(8);
+                return new SideFragment("순정",1);
             case 9:
-                return new GenreFragment(9);
+                return new SideFragment("감성",1);
             case 10:
-                return new GenreFragment(10);
+                return new SideFragment("스릴러",1);
             case 11:
-                return new GenreFragment(11);
+                return new SideFragment("시대극",1);
             case 12:
-                return new GenreFragment(12);
+                return new SideFragment("스포츠",1);
             default:
                 return null;
         }

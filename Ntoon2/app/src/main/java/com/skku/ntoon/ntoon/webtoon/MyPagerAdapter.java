@@ -3,6 +3,8 @@ package com.skku.ntoon.ntoon.webtoon;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
 
+import com.skku.ntoon.ntoon.Util.SideFragment;
+
 /**
  * Created by CNWMAC on 16. 1. 5..
  */
@@ -26,19 +28,19 @@ public class MyPagerAdapter extends FragmentPagerAdapter {
     public android.support.v4.app.Fragment getItem(int position) {
         switch (position) {
             case 0:
-                return DayFragment.newInstance(0, "Page # 1");
+                return new SideFragment("월",0);
             case 1:
-                return DayFragment.newInstance(1, "Page # 2");
+                return new SideFragment("화",0);
             case 2:
-                return DayFragment.newInstance(2, "Page # 3");
+                return new SideFragment("수",0);
             case 3:
-                return DayFragment.newInstance(3, "Page # 4");
+                return new SideFragment("목",0);
             case 4:
-                return DayFragment.newInstance(4, "Page # 5");
+                return new SideFragment("금",0);
             case 5:
-                return DayFragment.newInstance(5, "Page # 6");
+                return new SideFragment("토",0);
             case 6:
-                return DayFragment.newInstance(6, "Page # 7");
+                return new SideFragment("일",0);
             default:
                 return null;
         }

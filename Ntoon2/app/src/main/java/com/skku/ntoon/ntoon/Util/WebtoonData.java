@@ -1,12 +1,12 @@
-package com.skku.ntoon.ntoon.finishtoon;
+package com.skku.ntoon.ntoon.Util;
 
 /**
- * Created by luusoo on 2016-01-09.
+ * Created by luusoo on 2016-01-19.
  */
-public class FinishData {
+public class WebtoonData {
     String name, author, date, star, thumbnail, intro, wid;
 
-    public FinishData(String name, String author, String star, String thumbnail, String intro, String wid){
+    public WebtoonData(String name, String author, String star, String thumbnail, String intro, String wid){
         this.name = name;
         this.author = author;
         this.star = star;
@@ -38,6 +38,5 @@ public class FinishData {
     public String getIntro(){return intro;}
 
     public String getWid(){return wid;}
-
-
 }
+

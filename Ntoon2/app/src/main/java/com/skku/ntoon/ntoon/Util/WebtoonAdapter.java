@@ -1,4 +1,4 @@
-package com.skku.ntoon.ntoon.finishtoon;
+package com.skku.ntoon.ntoon.Util;
 
 import android.app.Activity;
 import android.view.LayoutInflater;
@@ -8,18 +8,18 @@ import android.widget.BaseAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import java.util.ArrayList;
-
 import com.nostra13.universalimageloader.core.ImageLoader;
-import com.nostra13.universalimageloader.core.ImageLoaderConfiguration;
 import com.skku.ntoon.ntoon.R;
 
-public class GenreAdapter extends BaseAdapter
+/**
+ * Created by luusoo on 2016-01-19.
+ */
+public class WebtoonAdapter extends BaseAdapter
 {
     private Activity activity;
-    private ArrayList<FinishData> fdata;
+    private WebtoonArray fdata;
 
-    public GenreAdapter(Activity activity, ArrayList<FinishData> fdata) {
+    public WebtoonAdapter(Activity activity, WebtoonArray fdata) {
         super();
         this.activity = activity;
         this.fdata = fdata;
