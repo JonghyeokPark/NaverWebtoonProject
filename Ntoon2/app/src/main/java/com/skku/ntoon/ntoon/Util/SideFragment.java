@@ -21,6 +21,7 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.nostra13.universalimageloader.core.ImageLoader;
 import com.skku.ntoon.ntoon.ListPage.ListFragment;
 import com.skku.ntoon.ntoon.R;
 import com.skku.ntoon.ntoon.Util.WebtoonAdapter;
@@ -52,6 +53,13 @@ public class SideFragment extends Fragment {
     private GridView list_webtoon;
 
     ArrayList<HashMap<String,String>> webtoonList = new WebtoonList().getWebtoonList();
+
+    String dialog_wid=null;
+    String dialog_name=null;
+    String dialog_thumbnail=null;
+    String dialog_intro=null;
+
+    ImageLoader imageLoader = ImageLoader.getInstance();
 
     public SideFragment(String type, int isend) {
         this.type = type;
@@ -202,10 +210,25 @@ public class SideFragment extends Fragment {
                 Dialog dialog = new Dialog(getContext());
                 dialog.setContentView(R.layout.custom_dialog);
 
+                WebtoonData dialog_webtoon;
+                dialog_webtoon = fdata.get(pos);
+
+                dialog_wid = dialog_webtoon.getWid();
+                dialog_name = dialog_webtoon.getName();
+                dialog_thumbnail = dialog_webtoon.getThumbnail();
+                dialog_intro =dialog_webtoon.getIntro();
+
                 TextView text = (TextView) dialog.findViewById(R.id.textView);
-                text.setText("sample");
+                //text.setText("sample");
+                TextView nameText = (TextView) dialog.findViewById(R.id.dialog_name_tv);
+                TextView introText = (TextView) dialog.findViewById(R.id.dialog_intro_tv);
                 ImageView image = (ImageView) dialog.findViewById(R.id.imageView);
-                image.setImageResource(R.drawable.sample);
+                imageLoader.displayImage(dialog_thumbnail, image);
+
+                nameText.setText(dialog_name);
+                introText.setText(dialog_intro);
+
+                //image.setImageResource(R.drawable.sample);
                 dialog.show();
                 return true;
             }
