@@ -1,35 +1,53 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical" android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:orientation="vertical" android:layout_width="300dp"
+    android:id="@+id/mainLayout_custom_dialog"
+    android:layout_height="400dp"
+    android:layout_gravity="center"
+    android:background="#88000000"
+    android:gravity="center">
 
-    <ImageView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/imageView"
-        android:layout_gravity="center_horizontal" />
+    <LinearLayout
+        android:layout_width="300dp"
+        android:layout_height="200dp"
+        android:orientation="vertical">
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textStyle="bold"
-        android:id="@+id/dialog_name_tv"
-        android:text="웹툰 정보입니다" />
+        <ImageView
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/imageView"
+            android:layout_gravity="center_horizontal" />
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/dialog_intro_tv"
-        android:text="웹툰 소개입니다" />
+        <TextView
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:textStyle="bold"
+            android:textColor="#ffffffff"
+            android:id="@+id/dialog_name_tv"
+            android:text="웹툰 정보입니다" />
 
-    <TextView
-        android:layout_marginTop="10dp"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="이 작가의 추천 웹툰"
-        android:textStyle="bold"
-        android:id="@+id/textView"
-        android:layout_gravity="center_horizontal" />
+        <TextView
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/dialog_intro_tv"
+            android:textColor="#ffffffff"
+
+            android:text="웹툰 소개입니다" />
+
+        <TextView
+            android:layout_marginTop="10dp"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:text="이 작가의 추천 웹툰"
+            android:textStyle="bold"
+            android:textColor="#ffffffff"
+
+            android:id="@+id/textView"
+            android:layout_gravity="center_horizontal" />
+
+
+    </LinearLayout>
+
 
 
 
