@@ -60,8 +60,6 @@ public class MainActivity extends AppCompatActivity {
 
     private Intent intent;
 
-    //TextView NtoonTv;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -74,8 +72,6 @@ public class MainActivity extends AppCompatActivity {
         webtoonBtn = (Button) findViewById(R.id.webtoonBtn_main);
         finishBtn = (Button) findViewById(R.id.finishBtn_main);
         storeBtn = (Button) findViewById(R.id.storeBtn_main);
-
-        //NtoonTv = (TextView)findViewById(R.id.NtoonsayTv_main);
 
         mypageBtn.setOnClickListener(tabListener);
         webtoonBtn.setOnClickListener(tabListener);
@@ -90,7 +86,6 @@ public class MainActivity extends AppCompatActivity {
 
         intent = new Intent(this, NtoonService.class);
         startService(intent);
-
 
         ImageLoaderConfiguration config = new ImageLoaderConfiguration.Builder(getApplicationContext())
                 .threadPriority(Thread.NORM_PRIORITY - 2)

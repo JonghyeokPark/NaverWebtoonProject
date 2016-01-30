@@ -120,8 +120,6 @@ public class SideFragment extends Fragment {
 
                         break;
                 }
-
-
             }
         }
 
@@ -153,7 +151,7 @@ public class SideFragment extends Fragment {
                         Log.d("WEBTOON author", webtoon.get("author"));
                         Log.d("WEBTOON isend",webtoon.get("isend"));
                         Log.d("WEBTOON genre",webtoon.get("genre"));
-                        Log.d("WEBTOON day","a"+webtoon.get("day")+"a");
+                        Log.d("WEBTOON day",webtoon.get("day"));
                         Log.d("WEBTOON star", webtoon.get("star"));
 
                         fdata.add(new WebtoonData(
@@ -178,6 +176,14 @@ public class SideFragment extends Fragment {
                     }
                 }
             }
+        }
+
+        for(int i=0;i<fdata.size();i++){
+            Log.i("aaaaa",fdata.get(i).getName());
+        }
+        fdata.setOrder("name");
+        for(int i=0;i<fdata.size();i++){
+            Log.i("aaaaa2",fdata.get(i).getName());
         }
 
         translateUpAnim = AnimationUtils.loadAnimation(getContext(), R.anim.translate_up);
@@ -208,9 +214,6 @@ public class SideFragment extends Fragment {
             public boolean onItemLongClick(AdapterView<?> parent, View view, int pos, long iD) {
                // Dialog dialog = new Dialog(getContext());
                // dialog.setContentView(R.layout.custom_dialog);
-
-
-
 
                 WebtoonData dialog_webtoon;
                 dialog_webtoon = fdata.get(pos);

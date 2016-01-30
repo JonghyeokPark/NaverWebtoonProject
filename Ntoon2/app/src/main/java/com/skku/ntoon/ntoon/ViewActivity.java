@@ -14,8 +14,8 @@ public class ViewActivity extends AppCompatActivity{
         super.onCreate(savedInstanceState, persistentState);
 
         Intent intent = getIntent();
-        String number = String.valueOf(intent.getStringExtra("number"));
-
+        String image = intent.getStringExtra("image");
+        String imagenum = intent.getStringExtra("imagenum");
 
     }
 }

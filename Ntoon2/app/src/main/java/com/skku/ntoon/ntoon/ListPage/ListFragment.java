@@ -29,6 +29,7 @@ import java.util.List;
 /**
  * Created by luusoo on 16. 1. 5..
  */
+
 public class ListFragment extends Fragment {
     // Store instance variables
 
@@ -87,16 +88,16 @@ public class ListFragment extends Fragment {
 
             if(webtoon.get("wid") == wid) {
                 ldata.add(new ListData(webtoon.get("title"), webtoon.get("update"), webtoon.get("number"),
-                        webtoon.get("star"), webtoon.get("hits"), webtoon.get("thumbnail"), webtoon.get("image")));
+                        webtoon.get("star"), webtoon.get("hits"), webtoon.get("thumbnail"), webtoon.get("image"), webtoon.get("imagenum")));
             }
         }
 
         for(int i = 0;i < ldata.size(); i++){
-            for(int j = 0;j < i; j++){
-                if(Integer.parseInt(ldata.get(j).getNumber()) > Integer.parseInt(ldata.get(j-1).getNumber())){
+            for(int j = 0;j < ldata.size()-1-i; j++){
+                if(Integer.parseInt(ldata.get(j).getNumber()) > Integer.parseInt(ldata.get(j+1).getNumber())){
                     ListData temp = ldata.get(j);
-                    ldata.set(j,ldata.get(j-1));
-                    ldata.set(j-1,temp);
+                    ldata.set(j,ldata.get(+1));
+                    ldata.set(j+1,temp);
                 }
             }
         }
@@ -109,7 +110,8 @@ public class ListFragment extends Fragment {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int pos, long id) {
                 Intent intent = new Intent(getContext(), ViewActivity.class);
-                intent.putExtra("number",ldata.size()-pos);
+                intent.putExtra("iamge",ldata.get(pos).getImage());
+                intent.putExtra("iamgenum",ldata.get(pos).getImagenum());
                 startActivity(intent);
             }
         });
@@ -171,18 +173,20 @@ public class ListFragment extends Fragment {
                             String hits = c.getString("hits");
                             String thumbnail = c.getString("thumbnail");
                             String image = c.getString("image");
+                            String imagenum = c.getString("imagenum");
 
 
                             HashMap<String, String> map = new HashMap<>();
                             map.put("cid", cid);
-                            map.put("hits", hits);
-                            map.put("image", image);
-                            map.put("number", number);
-                            map.put("star", star);
-                            map.put("thumbnail", thumbnail);
+                            map.put("wid", wid);
                             map.put("title", title);
                             map.put("update", update);
-                            map.put("wid", wid);
+                            map.put("number", number);
+                            map.put("star", star);
+                            map.put("hits", hits);
+                            map.put("thumbnail", thumbnail);
+                            map.put("image", image);
+                            map.put("imagenum",imagenum);
 
                             webtoonList.add(map);
                         }

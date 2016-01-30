@@ -26,7 +26,9 @@ public class WebtoonAdapter extends BaseAdapter
     }
 
     @Override
-    public int getCount() { return fdata.size(); }
+    public int getCount() {
+        return fdata.size();
+    }
 
     @Override
     public Object getItem(int position) {
@@ -41,9 +43,7 @@ public class WebtoonAdapter extends BaseAdapter
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
 
-
         ImageLoader imageLoader = ImageLoader.getInstance();
-
 
         // TODO Auto-generated method stub
         LayoutInflater inflator = activity.getLayoutInflater();

@@ -4,10 +4,10 @@ package com.skku.ntoon.ntoon.ListPage;
  * Created by luusoo on 2016-01-09.
  */
 public class ListData {
-    String title,update,number,star,hits,thumbnail,image;
+    String title,update,number,star,hits,thumbnail,image,imagenum;
 
     public ListData(String title, String update, String number, String star,
-                    String hits, String thumbnail, String image){
+                    String hits, String thumbnail, String image, String imagenum){
         this.title = title;
         this.update = update;
         this.number = number;
@@ -15,6 +15,7 @@ public class ListData {
         this.hits = hits;
         this.thumbnail = thumbnail;
         this.image = image;
+        this.imagenum = imagenum;
     }
 
     public String getTitle() {
@@ -43,6 +44,10 @@ public class ListData {
 
     public String getImage() {
         return image;
+    }
+
+    public String getImagenum() {
+        return imagenum;
     }
 
 }

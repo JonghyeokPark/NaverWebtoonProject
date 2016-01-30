@@ -29,7 +29,7 @@ public class WebtoonList {
     public void setOrder(int t,String type) {
         if(t == 0) {
             for (int i = 0; i < webtoonList.size(); i++) {
-                for (int j = 0; j < i; j++) {
+                for (int j = 1; j < i; j++) {
                     if (webtoonList.get(j).get(type).compareTo(webtoonList.get(j - 1).get(type)) == 1) {
                         HashMap<String, String> temp = webtoonList.get(j);
                         webtoonList.set(j, webtoonList.get(j - 1));
@@ -40,7 +40,7 @@ public class WebtoonList {
         }
         else if(t == 1){
             for (int i = 0; i < wList.size(); i++) {
-                for (int j = 0; j < i; j++) {
+                for (int j = 1; j < i; j++) {
                     if (wList.get(j).get(type).compareTo(wList.get(j - 1).get(type)) == 1) {
                         HashMap<String, String> temp = wList.get(j);
                         wList.set(j, wList.get(j - 1));
