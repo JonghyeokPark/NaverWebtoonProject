@@ -69,7 +69,6 @@ public class MainActivity extends AppCompatActivity {
 
         new LoadAllWebtoons().execute();
 
-        new WebtoonList(webtoonList);
 
         mypageBtn = (Button) findViewById(R.id.mypageBtn_main);
         webtoonBtn = (Button) findViewById(R.id.webtoonBtn_main);
@@ -176,8 +175,9 @@ public class MainActivity extends AppCompatActivity {
                 if(success == 1){
                     webtoons = json.getJSONArray(TAG_WEBTOON);
 
-                    for(int i =0; i < webtoons.length(); i++){
-                        JSONObject c = webtoons.getJSONObject(i);
+                    if(new WebtoonList().isEmpty(0)) {
+                        for (int i = 0; i < webtoons.length(); i++) {
+                            JSONObject c = webtoons.getJSONObject(i);
                         /* $product["wid"] = $row["wid"];
         $product["name"] = $row["name"];
         $product["star"] = $row["star"];
@@ -191,57 +191,60 @@ public class MainActivity extends AppCompatActivity {
         $product["isstop"] = $row["isstop"];
         $product["startdate"] = $row["startdate"];*/
 
-                        String wid = c.getString("wid");
-                        String name = c.getString("name");
-                        String star = c.getString("star");
-                        String author = c.getString("author");
-                        String genre = c.getString("genre");
-                        String intro = c.getString("intro");
-                        String day = c.getString("day");
-                        String thumbnail = c.getString("thumbnail");
-                        String likes = c.getString("likes");
-                        String isend = c.getString("isend");
-                        String isstop = c.getString("isstop");
-                        String startdate = c.getString("startdate");
+                            String wid = c.getString("wid");
+                            String name = c.getString("name");
+                            String star = c.getString("star");
+                            String author = c.getString("author");
+                            String genre = c.getString("genre");
+                            String intro = c.getString("intro");
+                            String day = c.getString("day");
+                            String thumbnail = c.getString("thumbnail");
+                            String likes = c.getString("likes");
+                            String isend = c.getString("isend");
+                            String isstop = c.getString("isstop");
+                            String startdate = c.getString("startdate");
 
-                        //Log.d("TAG", name);
-                        //Log.d("TAG", author);
-                        Log.d("TAG", isend);
-                        Log.d("TAG", day);
+                            //Log.d("TAG", name);
+                            //Log.d("TAG", author);
+                            Log.d("TAG", isend);
+                            Log.d("TAG", day);
 
 
-                        HashMap<String, String> map = new HashMap<>();
-                        map.put("wid",wid);
-                        map.put("name",name);
-                        map.put("star",star);
-                        map.put("author",author);
-                        map.put("genre",genre);
-                        map.put("intro",intro);
-                        map.put("day",day);
-                        map.put("thumbnail",thumbnail);
-                        map.put("likes",likes);
-                        map.put("isend",isend);
-                        map.put("isstop",isstop);
-                        map.put("startdate",startdate);
+                            HashMap<String, String> map = new HashMap<>();
+                            map.put("wid", wid);
+                            map.put("name", name);
+                            map.put("star", star);
+                            map.put("author", author);
+                            map.put("genre", genre);
+                            map.put("intro", intro);
+                            map.put("day", day);
+                            map.put("thumbnail", thumbnail);
+                            map.put("likes", likes);
+                            map.put("isend", isend);
+                            map.put("isstop", isstop);
+                            map.put("startdate", startdate);
 
-                        //Log.i("[MAIN RESULT]", name + "//" + author);
-                        int flag = 0;
+                            //Log.i("[MAIN RESULT]", name + "//" + author);
+                            int flag = 0;
 
-                        if(webtoonList.size() > 0 ) {
-                            for (int j = 0; j < webtoonList.size(); j++) {
-                                HashMap<String, String> webtoon2 = webtoonList.get(j);
+                            if (webtoonList.size() > 0) {
+                                for (int j = 0; j < webtoonList.size(); j++) {
+                                    HashMap<String, String> webtoon2 = webtoonList.get(j);
 
-                                if (webtoon2.get("wid").equals(wid)) {
-                                    Log.d("TAGG",webtoon2.get("wid"));
-                                    Log.d("TAGG",wid);
+                                    if (webtoon2.get("wid").equals(wid)) {
+                                        Log.d("TAGG", webtoon2.get("wid"));
+                                        Log.d("TAGG", wid);
 
-                                    flag = 1;
+                                        flag = 1;
+                                    }
                                 }
                             }
+
+                            if (flag == 0)
+                                webtoonList.add(map);
                         }
 
-                        if(flag == 0)
-                            webtoonList.add(map);
+                        new WebtoonList().setWebtoonList(webtoonList);
                     }
                 }
                 else {

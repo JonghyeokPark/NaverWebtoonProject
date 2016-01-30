@@ -8,6 +8,7 @@ import android.widget.BaseAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.nostra13.universalimageloader.core.ImageLoader;
 import com.skku.ntoon.ntoon.R;
 
 import java.util.ArrayList;
@@ -44,11 +45,13 @@ public class ListAdapter extends BaseAdapter
         LayoutInflater inflator = activity.getLayoutInflater();
         convertView = inflator.inflate(R.layout.adapter_list, null);
 
-        TextView name = (TextView) convertView.findViewById(R.id.name);
+        ImageLoader imageLoader = ImageLoader.getInstance();
+
+        TextView title = (TextView) convertView.findViewById(R.id.title);
         ImageView imageView = (ImageView) convertView.findViewById(R.id.imageView);
 
-        name.setText(ldata.get(position).getName());
-        imageView.setImageResource(R.drawable.sample);
+        title.setText(ldata.get(position).getTitle());
+        imageLoader.displayImage(ldata.get(position).getThumbnail(), imageView);
 
         return convertView;
     }
